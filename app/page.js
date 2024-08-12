@@ -1,95 +1,129 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Header from "./header";
+import Footer from "./footer";
+
+const Experience = ({ details }) => {
+  return (
+    <div className={styles.experience}>
+      <div className={styles.icon}></div>
+      <p>{details}</p>
+    </div>
+  );
+};
+
+const Service = ({ service, details }) => {
+  return (
+    <div className={styles.service}>
+      <div className={styles.logo}></div>
+      <h3>{service}</h3>
+      <p>{details}</p>
+    </div>
+  );
+};
+
+const Testimonial = ({ image, quote, name }) => {
+  return (
+    <div className={styles.testimonial}>
+      <div className={styles.profile}>{image}</div>
+      <p>{quote}</p>
+      <p>{name}</p>
+    </div>
+  );
+};
+
+const About = ({ image }) => {
+  return (
+    <div>
+      <div className={styles.profile}>{image}</div>
+      <h2>I'm Adrian Brown, a videographer and motion designer</h2>
+      <p>
+        At Adrianʼs Multimedia, we believe in creativity, quality, and
+        collaboration. We strive to understand your vision and bring it to life
+        through stunning visuals. Our passion drives us to deliver exceptional
+        service and results that exceed your expectations. Together, let’s
+        create something amazing that truly resonates with your audience.
+      </p>
+      <button>Learn more</button>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+      <Header />
+      <main className={styles.main}>
+        <section className={styles.hero}>
+          <h1>Capturing your mission one frame at a time</h1>
+          <p>Let's bring your vision to life.</p>
+          <button>Get in touch</button>
+          <button>See more</button>
+          <div className={styles.reel}></div>
+        </section>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <section className={styles.experiences}>
+          <Experience
+            details="Years of expert storytelling 
+experience behind every 
+frame."
+          />
+          <Experience
+            details="Years of expert storytelling 
+experience behind every 
+frame."
+          />
+          <Experience
+            details="Years of expert storytelling 
+experience behind every 
+frame."
+          />
+        </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <section className={styles.services}>
+          <Service
+            service="Videography"
+            details="Capture life’s moments with stunning 
+videography that tells your story 
+in a beautiful and engaging way."
+          />
+          <Service
+            service="Motion Graphics"
+            details="Bring your ideas to life with eye-catching 
+motion graphics that captivate 
+and inform your audience."
+          />
+          <Service
+            service="Video Editing"
+            details="Capture life’s moments with stunning 
+videography that tells your story 
+in a beautiful and engaging way."
+          />
+        </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        <section className={styles.testimonials}>
+          <h2>Testimonials</h2>
+          <Testimonial
+            quote="Adrian’s work transformed our vision into a stunning video! 
+His creativity and attention to detail are truly unmatched."
+            name="Sarah Johnson"
+          />
+          <Testimonial
+            quote="Adrian’s work transformed our vision into a stunning video! 
+His creativity and attention to detail are truly unmatched."
+            name="Sarah Johnson"
+          />
+          <Testimonial
+            quote="Adrian’s work transformed our vision into a stunning video! 
+His creativity and attention to detail are truly unmatched."
+            name="Sarah Johnson"
+          />
+        </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <section>
+          <About />
+        </section>
+      </main>
+      <Footer></Footer>
+    </>
   );
 }

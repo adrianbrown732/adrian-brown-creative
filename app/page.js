@@ -1,50 +1,50 @@
 import styles from "./page.module.css";
 import Header from "./header";
 import Footer from "./footer";
+import { Lora } from "next/font/google";
+import BackgroundVideo from "next-video/background-video";
+import videoBG from "/videos/video-bg.mp4";
+import Link from "next/link";
 
-const Experience = ({ details }) => {
-  return (
-    <div className={styles.experience}>
-      <div className={styles.icon}></div>
-      <p>{details}</p>
-    </div>
-  );
+const lora = Lora({ subsets: ["latin"] });
+
+const email = "mailto:adrianbrown.editor@gmail.com";
+
+const Services = ({ children }) => {
+  return <section className={styles.services}>{children}</section>;
 };
 
 const Service = ({ service, details }) => {
   return (
     <div className={styles.service}>
       <div className={styles.logo}></div>
-      <h3>{service}</h3>
+      <h3 className={lora.className}>{service}</h3>
       <p>{details}</p>
     </div>
   );
 };
 
-const Testimonial = ({ image, quote, name }) => {
+const About = () => {
   return (
-    <div className={styles.testimonial}>
-      <div className={styles.profile}>{image}</div>
-      <p>{quote}</p>
-      <p>{name}</p>
-    </div>
-  );
-};
-
-const About = ({ image }) => {
-  return (
-    <div>
-      <div className={styles.profile}>{image}</div>
-      <h2>I'm Adrian Brown, a videographer and motion designer</h2>
-      <p>
-        At Adrianʼs Multimedia, we believe in creativity, quality, and
-        collaboration. We strive to understand your vision and bring it to life
-        through stunning visuals. Our passion drives us to deliver exceptional
-        service and results that exceed your expectations. Together, let’s
-        create something amazing that truly resonates with your audience.
-      </p>
-      <button>Learn more</button>
-    </div>
+    <section className={styles.about}>
+      <div className={styles.profile}></div>
+      <div className={styles.bio}>
+        <h2 className={lora.className}>
+          I'm Adrian Brown, <br />a videographer and
+          <br /> motion designer
+        </h2>
+        <p>
+          Video is essential to modern marketing practices. This makes
+          understanding how to properly implement video assets a high priority.
+          With each project, my objective is to produce quality content that
+          brings value to my clients, handling all phases of production and
+          post-production.
+        </p>
+        <button>
+          <Link href={email}>Let's talk</Link>
+        </button>
+      </div>
+    </section>
   );
 };
 
@@ -52,77 +52,63 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className={styles.main}>
-        <section className={styles.hero}>
-          <h1>Capturing your mission one frame at a time</h1>
-          <p>Let's bring your vision to life.</p>
-          <button>Get in touch</button>
-          <button>See more</button>
-          <div className={styles.reel}></div>
-        </section>
+      <BackgroundVideo
+        src={videoBG}
+        style={{
+          aspectRatio: "16 / 9",
+        }}
+      >
+        <section className={`${styles.hero} ${styles.desktop}`}>
+          <h1 className={lora.className}>
+            Tell your story
+            <br /> one frame at a time
+          </h1>
 
-        <section className={styles.experiences}>
-          <Experience
-            details="Years of expert storytelling 
-experience behind every 
-frame."
-          />
-          <Experience
-            details="Years of expert storytelling 
-experience behind every 
-frame."
-          />
-          <Experience
-            details="Years of expert storytelling 
-experience behind every 
-frame."
-          />
+          <div className={styles.cta}>
+            <button>
+              <Link href={email}>Get in touch</Link>
+            </button>
+            <button>
+              <Link href="/portfolio">See portfolio</Link>
+            </button>
+          </div>
         </section>
+      </BackgroundVideo>
 
-        <section className={styles.services}>
-          <Service
-            service="Videography"
-            details="Capture life’s moments with stunning 
-videography that tells your story 
-in a beautiful and engaging way."
-          />
-          <Service
-            service="Motion Graphics"
-            details="Bring your ideas to life with eye-catching 
-motion graphics that captivate 
-and inform your audience."
-          />
-          <Service
-            service="Video Editing"
-            details="Capture life’s moments with stunning 
-videography that tells your story 
-in a beautiful and engaging way."
-          />
-        </section>
+      <section className={`${styles.hero} ${styles.mobile}`}>
+        <h1 className={lora.className}>
+          Tell your story
+          <br /> one frame at a time
+        </h1>
+        <div className={styles.cta}>
+          <button>
+            <Link href={email}>Get in touch</Link>
+          </button>
+          <button>
+            <Link href="/portfolio">See portfolio</Link>
+          </button>
+        </div>
+        <div className={styles.reel}></div>
+      </section>
 
-        <section className={styles.testimonials}>
-          <h2>Testimonials</h2>
-          <Testimonial
-            quote="Adrian’s work transformed our vision into a stunning video! 
-His creativity and attention to detail are truly unmatched."
-            name="Sarah Johnson"
-          />
-          <Testimonial
-            quote="Adrian’s work transformed our vision into a stunning video! 
-His creativity and attention to detail are truly unmatched."
-            name="Sarah Johnson"
-          />
-          <Testimonial
-            quote="Adrian’s work transformed our vision into a stunning video! 
-His creativity and attention to detail are truly unmatched."
-            name="Sarah Johnson"
-          />
-        </section>
+      <Services>
+        <h2 className={lora.className}>Services</h2>
+        <Service
+          service="Videography"
+          details="Technically crafted videography that considers lighting, sound and staging to produce aesthetically meaningful visuals."
+        />
+        <Service
+          service="Motion Graphics"
+          details="Eye-catching motion graphics designed to captivate and inform your audience of what’s most important."
+        />
+        <Service
+          service="Video Editing"
+          details="Meticulously crafted editing that tells your story in a stunning and engaging way."
+        />
+      </Services>
 
-        <section>
-          <About />
-        </section>
-      </main>
+      <About />
+
       <Footer></Footer>
     </>
   );

@@ -40,7 +40,7 @@ export default function Header() {
             <Link href="/portfolio">Portfolio</Link>
           </li>
           <li>
-            <Link href="/contact">Contact</Link>
+            <Link href={email}>Contact</Link>
           </li>
         </ul>
       </header>

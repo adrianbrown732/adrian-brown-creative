@@ -41,7 +41,7 @@ const About = () => {
           post-production.
         </p>
         <button>
-          <Link href={email}>Let's talk</Link>
+          <Link href="/portfolio">See portfolio</Link>
         </button>
       </div>
     </section>
@@ -58,40 +58,10 @@ export default function Home() {
           aspectRatio: "16 / 9",
         }}
       >
-        <section className={`${styles.hero} ${styles.desktop}`}>
-          <h1 className={lora.className}>
-            Tell your story
-            <br /> one frame at a time
-          </h1>
-
-          <div className={styles.cta}>
-            <button>
-              <Link href={email}>Get in touch</Link>
-            </button>
-            <button>
-              <Link href="/portfolio">See portfolio</Link>
-            </button>
-          </div>
-        </section>
+        <section className={`${styles.hero} ${styles.desktop}`}></section>
       </BackgroundVideo>
 
-      <section className={`${styles.hero} ${styles.mobile}`}>
-        <h1 className={lora.className}>
-          Tell your story
-          <br /> one frame at a time
-        </h1>
-        <div className={styles.cta}>
-          <button>
-            <Link href={email}>Get in touch</Link>
-          </button>
-          <button>
-            <Link href="/portfolio">See portfolio</Link>
-          </button>
-        </div>
-        <div className={styles.reel}></div>
-      </section>
-
-      <Services>
+      {/* <Services>
         <h2 className={lora.className}>Services</h2>
         <Service
           service="Videography"
@@ -105,7 +75,7 @@ export default function Home() {
           service="Video Editing"
           details="Meticulously crafted editing that tells your story in a stunning and engaging way."
         />
-      </Services>
+      </Services> */}
 
       <About />
 

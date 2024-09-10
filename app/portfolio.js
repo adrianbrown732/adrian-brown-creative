@@ -1,9 +1,6 @@
 "use client";
 import { useState } from "react";
-import styles from "../page.module.css";
-import Link from "next/link";
-import Header from "../header";
-import Footer from "../footer";
+import styles from "./page.module.css";
 import { Lora } from "next/font/google";
 
 const lora = Lora({ subsets: ["latin"] });
@@ -70,7 +67,6 @@ export default function Portfolio() {
           <iframe
             className={styles.iframe}
             src={videoSrc}
-            frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
           ></iframe>
           <button onClick={handleClose}>close</button>
@@ -82,9 +78,7 @@ export default function Portfolio() {
 
   return (
     <div className={styles["portfolio-page"]}>
-      <Header />
-      {/* <h1 className={lora.className}>Portfolio</h1> */}
-      <main className={styles.portfolio}>
+      <div className={styles.portfolio}>
         <Sample imgURL={imgURL[6]} videoSrc={videos[6]} />
         <Sample imgURL={imgURL[1]} videoSrc={videos[1]} />
         <Sample imgURL={imgURL[7]} videoSrc={videos[7]} />
@@ -94,9 +88,8 @@ export default function Portfolio() {
         <Sample imgURL={imgURL[8]} videoSrc={videos[8]} />
         <Sample imgURL={imgURL[2]} videoSrc={videos[2]} />
         <Sample imgURL={imgURL[0]} videoSrc={videos[0]} />
-      </main>
+      </div>
       <Video />
-      <Footer></Footer>
     </div>
   );
 }

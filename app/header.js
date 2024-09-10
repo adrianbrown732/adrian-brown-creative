@@ -39,7 +39,7 @@ export default function Header() {
 
         <ul className={`${styles.nav} ${styles.desktop}`}>
           <li>
-            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/about">About</Link>
           </li>
           <li>
             <Link href={email}>Contact</Link>
@@ -67,7 +67,7 @@ export default function Header() {
 
         <ul className={styles["mobile-nav"]}>
           <li>
-            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/about">About</Link>
           </li>
           <li>
             <Link href={email}>Contact</Link>

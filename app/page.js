@@ -1,10 +1,10 @@
 import styles from "./page.module.css";
 import Header from "./header";
 import Footer from "./footer";
+import Portfolio from "./portfolio";
 import { Lora } from "next/font/google";
 import BackgroundVideo from "next-video/background-video";
 import videoBG from "/videos/video-bg.mp4";
-import Link from "next/link";
 
 const lora = Lora({ subsets: ["latin"] });
 
@@ -21,30 +21,6 @@ const Service = ({ service, details }) => {
       <h3 className={lora.className}>{service}</h3>
       <p>{details}</p>
     </div>
-  );
-};
-
-const About = () => {
-  return (
-    <section className={styles.about}>
-      <div className={styles.profile}></div>
-      <div className={styles.bio}>
-        <h2 className={lora.className}>
-          I'm Adrian Brown, <br />a videographer and
-          <br /> motion designer
-        </h2>
-        <p>
-          Video is essential to modern marketing practices. This makes
-          understanding how to properly implement video assets a high priority.
-          With each project, my objective is to produce quality content that
-          brings value to my clients, handling all phases of production and
-          post-production.
-        </p>
-        <button>
-          <Link href="/portfolio">See portfolio</Link>
-        </button>
-      </div>
-    </section>
   );
 };
 
@@ -76,8 +52,7 @@ export default function Home() {
           details="Meticulously crafted editing that tells your story in a stunning and engaging way."
         />
       </Services> */}
-
-      <About />
+      <Portfolio />
 
       <Footer></Footer>
     </>
